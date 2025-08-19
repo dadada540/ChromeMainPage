@@ -1,15 +1,27 @@
 <script lang="ts">
 
-    import {Google} from 'svelte-supertiny';
+    import {GoogleBrands} from 'svelte-awesome-icons';
+    import {XTwitterBrands} from 'svelte-awesome-icons';
 
-    let searchquery = '';
+    let Gsearchquery = '';
+    let Xsearchquery = '';
 
-    function search(event: SubmitEvent) {
+    function Gsearch(event: SubmitEvent) {
 
         event.preventDefault();
-        if(searchquery.trim() !== ''){
+        if(Gsearchquery.trim() !== ''){
 
-            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchquery)}`;
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(Gsearchquery)}`;
+
+        }
+
+    }
+    function Xsearch(event: SubmitEvent) {
+
+        event.preventDefault();
+        if(Xsearchquery.trim() !== ''){
+
+            window.location.href = `https://x.com/search?q=${encodeURIComponent(Xsearchquery)}&src=typed_query`;
 
         }
 
@@ -17,16 +29,29 @@
 
 </script>
 
-<main>
+<main class="bg-gray-600 h-dvh">
 
-    <div class="flex justify-center p-40 w-full h-dvh bg-gray-600">
+    <div class="flex justify-center p-40 w-full">
 
-        <Google size="45"/>
+        <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
 
-        <form on:submit={search}>
+        <form on:submit={Gsearch}>
 
-            <input type='text' bind:value={searchquery} placeholder="ここに入力して検索" class="search-input rounded-full w-144 border-2 border-gray-300  focus:border-blue-500
+            <input type='text' bind:value={Gsearchquery} placeholder="Googleで検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-blue-500
             focus:ring-1 focus:ring-blue-500 hover:bg-gray-200 transition"/>
+
+        </form>
+
+    </div>
+
+    <div class="flex justify-center w-full">
+
+        <XTwitterBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
+
+        <form on:submit={Xsearch}>
+
+            <input type='text' bind:value={Xsearchquery} placeholder="話題を検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
+            focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
 
         </form>
 
