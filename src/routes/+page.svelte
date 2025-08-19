@@ -27,11 +27,16 @@
 
     }
 
+    let animationtitle = '';
+    let title = ['検索してみよう！', '何かを探してみよう！', 'GetNow.', '気になることを調べよう！', 'Searching...'];
+
 </script>
 
-<main class="bg-gray-600 h-dvh">
+<main class="bg-gray-600 h-dvh flex flex-col justify-center">
 
-    <div class="flex justify-center p-40 w-full">
+    <h1 class="text-white text-4xl font-bold flex justify-center">{animationtitle}</h1>
+
+    <div class="flex justify-center p-20 w-full">
 
         <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
 
