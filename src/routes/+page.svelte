@@ -31,7 +31,7 @@
     import { onMount } from 'svelte';
 
     let animationtitle = '';
-    let title = ['検索してみよう！', '何かを探してみよう！', 'GetNow.', '気になることを調べよう！', 'Searching...'];
+    let title = ['検索してみよう！', '何かを探してみよう！', 'Know,Now.', '気になることを調べよう！', 'Searching...'];
 
     const sleep= (time: number) => new Promise<void>((r) => setTimeout(r, time));
 
@@ -47,14 +47,22 @@
     }
 
     onMount(() => {
+
         animateTitle();
+
+        setInterval(() => {
+
+            animateTitle();
+
+        }, 15000); // 15秒ごとにタイトルをアニメーション
+
     });
 
 </script>
 
 <main class="bg-gray-600 h-dvh flex flex-col justify-center">
 
-    <h1 class="text-white text-4xl font-bold flex justify-center">{animationtitle}</h1>
+    <h1 class="text-white text-4xl font-bold flex justify-center overflow-hidden animate-typing whitespace-nowrap border-r-4 border-r-white ">{animationtitle}</h1>
 
     <div class="flex justify-center p-20 w-full">
 
