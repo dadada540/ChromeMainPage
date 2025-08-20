@@ -27,8 +27,28 @@
 
     }
 
+
+    import { onMount } from 'svelte';
+
     let animationtitle = '';
     let title = ['検索してみよう！', '何かを探してみよう！', 'GetNow.', '気になることを調べよう！', 'Searching...'];
+
+    const sleep= (time: number) => new Promise<void>((r) => setTimeout(r, time));
+
+    async function animateTitle() {
+
+        for(let i = 0; i < title.length; i++) {
+
+            animationtitle = title[i];
+            await sleep(3000); // 3秒待機
+
+        }
+
+    }
+
+    onMount(() => {
+        animateTitle();
+    });
 
 </script>
 
