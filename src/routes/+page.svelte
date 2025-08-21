@@ -3,6 +3,9 @@
     import {GoogleBrands} from 'svelte-awesome-icons';
     import {XTwitterBrands} from 'svelte-awesome-icons';
 
+    import {slide} from "svelte/transition"
+    import {fade} from "svelte/transition";
+
     let Gsearchquery = '';
     let Xsearchquery = '';
 
@@ -39,6 +42,7 @@
 
         for(let i = 0; i < title.length; i++) {
 
+            animationtitle = '';
             animationtitle = title[i];
             await sleep(3000); // 3秒待機
 
@@ -58,13 +62,20 @@
 
     });
 
+    let show = false;
+    onMount(() => { show = true; });
+
 </script>
 
 <main class="bg-gray-600 h-dvh flex flex-col justify-center">
 
-    <h1 class="text-white text-4xl font-bold flex justify-center overflow-hidden animate-typing whitespace-nowrap border-r-4 border-r-white ">{animationtitle}</h1>
 
-    <div class="flex justify-center p-20 w-full">
+    {#key animationtitle}
+        <h1 transition:slide class="text-white text-4xl font-bold flex justify-center">{animationtitle}</h1>
+    {/key}
+
+    {#if show}
+    <div class="flex justify-center p-20 w-full" transition:fade="{{delay: 250}}">
 
         <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
 
@@ -76,8 +87,10 @@
         </form>
 
     </div>
+    {/if}
 
-    <div class="flex justify-center w-full">
+    {#if show}
+    <div class="flex justify-center w-full" transition:fade="{{delay: 250}}">
 
         <XTwitterBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
 
@@ -89,5 +102,6 @@
         </form>
 
     </div>
+    {/if}
 
 </main>
