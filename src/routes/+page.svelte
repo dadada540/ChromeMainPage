@@ -2,12 +2,14 @@
 
     import {GoogleBrands} from 'svelte-awesome-icons';
     import {XTwitterBrands} from 'svelte-awesome-icons';
+    import {AmazonBrands} from 'svelte-awesome-icons';
 
     import {slide} from "svelte/transition"
     import {fade} from "svelte/transition";
 
     let Gsearchquery = '';
     let Xsearchquery = '';
+    let Asearchquery = '';
 
     function Gsearch(event: SubmitEvent) {
 
@@ -29,6 +31,16 @@
         }
 
     }
+    function Asearch(event: SubmitEvent) {
+
+        event.preventDefault();
+        if(Asearchquery.trim() !== ''){
+
+            window.location.href = `https://www.amazon.co.jp/s?k=${encodeURIComponent(Asearchquery)}`;
+
+        }
+
+    }
 
 
     import { onMount } from 'svelte';
@@ -42,9 +54,8 @@
 
         for(let i = 0; i < title.length; i++) {
 
-            animationtitle = '';
             animationtitle = title[i];
-            await sleep(3000); // 3秒待機
+            await sleep(4000); // 3秒待機
 
         }
 
@@ -58,7 +69,7 @@
 
             animateTitle();
 
-        }, 15000); // 15秒ごとにタイトルをアニメーション
+        }, 20000); // 15秒ごとにタイトルをアニメーション
 
     });
 
@@ -71,7 +82,7 @@
 
 
     {#key animationtitle}
-        <h1 transition:slide class="text-white text-4xl font-bold flex justify-center">{animationtitle}</h1>
+        <h1 class="text-white text-4xl font-light flex justify-center animate-pulse">{animationtitle}</h1>
     {/key}
 
     {#if show}
@@ -97,6 +108,21 @@
         <form on:submit={Xsearch}>
 
             <input type='text' bind:value={Xsearchquery} placeholder="話題を検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
+            focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
+
+        </form>
+
+    </div>
+    {/if}
+
+    {#if show}
+    <div class="flex justify-center w-full p-20" transition:fade="{{delay: 250}}">
+
+        <AmazonBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
+
+        <form on:submit={Asearch}>
+
+            <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
             focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
 
         </form>
