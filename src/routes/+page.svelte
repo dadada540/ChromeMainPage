@@ -80,54 +80,57 @@
 
 <main class="bg-gray-600 h-dvh flex flex-col justify-center">
 
+    <div class="bg-gray-500 backdrop-blur-md p-7">
 
-    {#key animationtitle}
-        <h1 class="text-white text-4xl font-light flex justify-center animate-pulse">{animationtitle}</h1>
-    {/key}
+        {#key animationtitle}
+            <h1 class="text-white text-4xl font-bold flex justify-center animate-pulse pt-10">{animationtitle}</h1>
+        {/key}
 
-    {#if show}
-    <div class="flex justify-center p-20 w-full" transition:fade="{{delay: 250}}">
+        {#if show}
+        <div class="flex justify-center p-20 w-full" transition:fade="{{delay: 250}}">
 
-        <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
+            <GoogleBrands size="45" color="white" class="drop-shadow-md flex-col p-1.5"/>
 
-        <form on:submit={Gsearch}>
+            <form on:submit={Gsearch}>
 
-            <input type='text' bind:value={Gsearchquery} placeholder="Googleで検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-blue-500
-            focus:ring-1 focus:ring-blue-500 hover:bg-gray-200 transition"/>
+                <input type='text' bind:value={Gsearchquery} placeholder="Googleで検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-blue-500
+                focus:ring-1 focus:ring-blue-500 hover:bg-gray-200 transition"/>
 
-        </form>
+            </form>
+
+        </div>
+        {/if}
+
+        {#if show}
+        <div class="flex justify-center w-full" transition:fade="{{delay: 250}}">
+
+            <XTwitterBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
+
+            <form on:submit={Xsearch}>
+
+                <input type='text' bind:value={Xsearchquery} placeholder="話題を検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
+                focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
+
+            </form>
+
+        </div>
+        {/if}
+
+        {#if show}
+        <div class="flex justify-center w-full p-20" transition:fade="{{delay: 250}}">
+
+            <AmazonBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
+
+            <form on:submit={Asearch}>
+
+                <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
+                focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
+
+            </form>
+
+        </div>
+        {/if}
 
     </div>
-    {/if}
-
-    {#if show}
-    <div class="flex justify-center w-full" transition:fade="{{delay: 250}}">
-
-        <XTwitterBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
-
-        <form on:submit={Xsearch}>
-
-            <input type='text' bind:value={Xsearchquery} placeholder="話題を検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
-            focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
-
-        </form>
-
-    </div>
-    {/if}
-
-    {#if show}
-    <div class="flex justify-center w-full p-20" transition:fade="{{delay: 250}}">
-
-        <AmazonBrands size="45" class="drop-shadow-md flex-col p-1.5" color="white"/>
-
-        <form on:submit={Asearch}>
-
-            <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
-            focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
-
-        </form>
-
-    </div>
-    {/if}
 
 </main>
