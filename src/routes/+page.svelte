@@ -123,8 +123,8 @@
 
             <form on:submit={Asearch}>
 
-                <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-gray-800
-                focus:ring-1 focus:ring-gray-800 hover:bg-gray-200 transition"/>
+                <input type='text' bind:value={Asearchquery} placeholder="Amazon.co.jpを検索" class="search-input rounded-full w-144 border-2 drop-shadow-lg border-gray-300  focus:border-yellow-300
+                focus:ring-1 focus:ring-yellow-300 hover:bg-gray-200 transition"/>
 
             </form>
 
