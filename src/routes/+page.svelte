@@ -78,9 +78,9 @@
 
 </script>
 
-<main class="bg-gray-600 h-dvh flex flex-col justify-center">
+<main class="bg-gray-600 h-dvh flex flex-col justify-center p-10">
 
-    <div class="bg-gray-500 backdrop-blur-md p-7">
+    <div class="bg-gray-500 backdrop-blur-md p-7 rounded-2xl">
 
         {#key animationtitle}
             <h1 class="text-white text-4xl font-bold flex justify-center animate-pulse pt-10">{animationtitle}</h1>
