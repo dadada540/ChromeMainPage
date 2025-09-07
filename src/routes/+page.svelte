@@ -45,8 +45,8 @@
 
     import { onMount } from 'svelte';
 
-    let animationtitle = '';
     let title = ['検索してみよう！', '何かを探してみよう！', 'Know,Now.', '気になることを調べよう！', 'Searching...'];
+    let animationtitle = title[0];
 
     const sleep= (time: number) => new Promise<void>((r) => setTimeout(r, time));
 
