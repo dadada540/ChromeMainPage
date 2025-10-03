@@ -78,6 +78,8 @@
 
 </script>
 
+<title>スマート検索タブ</title>
+
 <main class="bg-gray-600 h-dvh flex flex-col justify-center p-10">
 
     <div class="bg-gray-500 backdrop-blur-md p-7 rounded-2xl">
