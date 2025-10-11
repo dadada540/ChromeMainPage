@@ -4,7 +4,6 @@
     import {XTwitterBrands} from 'svelte-awesome-icons';
     import {AmazonBrands} from 'svelte-awesome-icons';
 
-    import {slide} from "svelte/transition"
     import {fade} from "svelte/transition";
 
     let Gsearchquery = '';
@@ -18,6 +17,8 @@
 
             window.location.href = `https://www.google.com/search?q=${encodeURIComponent(Gsearchquery)}`;
 
+            Gsearchquery = '';
+
         }
 
     }
@@ -27,6 +28,8 @@
         if(Xsearchquery.trim() !== ''){
 
             window.location.href = `https://x.com/search?q=${encodeURIComponent(Xsearchquery)}&src=typed_query`;
+
+            Xsearchquery = '';
 
         }
 
@@ -38,40 +41,14 @@
 
             window.location.href = `https://www.amazon.co.jp/s?k=${encodeURIComponent(Asearchquery)}`;
 
+            Asearchquery = '';
+
         }
 
     }
 
 
     import { onMount } from 'svelte';
-
-    let title = ['検索してみよう！', '何かを探してみよう！', 'Know,Now.', '気になることを調べよう！', 'Searching...'];
-    let animationtitle = title[0];
-
-    const sleep= (time: number) => new Promise<void>((r) => setTimeout(r, time));
-
-    async function animateTitle() {
-
-        for(let i = 0; i < title.length; i++) {
-
-            animationtitle = title[i];
-            await sleep(4000); // 3秒待機
-
-        }
-
-    }
-
-    onMount(() => {
-
-        animateTitle();
-
-        setInterval(() => {
-
-            animateTitle();
-
-        }, 20000); // 15秒ごとにタイトルをアニメーション
-
-    });
 
     let show = false;
     onMount(() => { show = true; });
@@ -84,9 +61,12 @@
 
     <div class="bg-gray-500 backdrop-blur-md p-7 rounded-2xl">
 
-        {#key animationtitle}
-            <h1 class="text-white text-4xl font-bold flex justify-center animate-pulse pt-10">{animationtitle}</h1>
-        {/key}
+        <div class="flex justify-center gap-2">
+
+            <img src="./images/icon.png" alt="Logo" class="mt-4"/>
+            <h1 class=" text-white text-4xl font-extralight pt-11">Smart Search</h1>
+
+        </div>
 
         {#if show}
         <div class="flex justify-center p-20 w-full" transition:fade="{{delay: 250}}">
